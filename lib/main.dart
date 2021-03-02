@@ -45,24 +45,46 @@ class Dashboard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset('images/marvel.png'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              height: 100,
-              width: 150,
-              color: Theme.of(context).primaryColor,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Icon(Icons.people,size: 32.0,),
-                  Text('Heroes')
-                ],
-              ),
-            ),
+          ),Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: EdgeInsets.all(8.0),
+                  height: 100,
+                  width: 150,
+                  color: Theme.of(context).primaryColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(Icons.people,size: 32.0,),
+                      Text('Heroes')
+                    ],
+                  ),
+                ),
+              ),Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: EdgeInsets.all(8.0),
+                  height: 100,
+                  width: 150,
+                  color: Theme.of(context).primaryColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Icon(Icons.people_outline,size: 32.0,),
+                      Text('Villains')
+                    ],
+                  ),
+                ),
+
+              )
+            ],
           )
+
         ],
       ),
     );
