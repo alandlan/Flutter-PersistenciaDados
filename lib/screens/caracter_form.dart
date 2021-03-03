@@ -7,49 +7,51 @@ class CaracterForm extends StatelessWidget {
       appBar: AppBar(title: Text('New Caracter'),),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Full name'
-              ),
-              style: TextStyle(
-                fontSize: 24.0
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TextField(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              TextField(
                 decoration: InputDecoration(
-                  labelText: 'Slogan'
+                  labelText: 'Full name'
                 ),
                 style: TextStyle(
                   fontSize: 24.0
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'Born'
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Slogan'
+                  ),
+                  style: TextStyle(
+                    fontSize: 24.0
+                  ),
                 ),
-                style: TextStyle(
-                  fontSize: 24.0
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Born'
+                  ),
+                  style: TextStyle(
+                    fontSize: 24.0
+                  ),
+                  keyboardType: TextInputType.number,
                 ),
-                keyboardType: TextInputType.number,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: SizedBox(
-                width: double.maxFinite,
-                child: RaisedButton(
-                    child: Text('Create'),
-                    onPressed: (){}),
-              ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: SizedBox(
+                  width: double.maxFinite,
+                  child: RaisedButton(
+                      child: Text('Create'),
+                      onPressed: (){}),
+                ),
+              )
+            ],
+          ),
         ),
       )
     );
