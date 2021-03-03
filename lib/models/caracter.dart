@@ -1,12 +1,13 @@
 class Caracter {
+  final int id;
   final String name;
   final String slogan;
   final int born;
 
-  Caracter(this.name, this.slogan, this.born);
+  Caracter(this.id,this.name, this.slogan, this.born);
 
   @override
   String toString() {
-    return 'Caracter{name: $name, slogan: $slogan, born: $born}';
+    return 'Caracter{id: $id, name: $name, slogan: $slogan, born: $born}';
   }
 }

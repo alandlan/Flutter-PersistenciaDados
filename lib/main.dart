@@ -1,6 +1,4 @@
-import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
 import 'package:FlutterPersistenciaDados/screens/dashboard.dart';
-import 'package:FlutterPersistenciaDados/screens/heroes_list.dart';
 import 'package:flutter/material.dart';
 
 void main() {

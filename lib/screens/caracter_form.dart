@@ -68,7 +68,7 @@ class _CaracterFormState extends State<CaracterForm> {
                         final String slogan = _sloganController.text;
                         final int born = int.tryParse(_bornController.text);
 
-                        final Caracter caracter = Caracter(name,slogan,born);
+                        final Caracter caracter = Caracter(0,name,slogan,born);
 
                         Navigator.pop(context,caracter);
                       }),
