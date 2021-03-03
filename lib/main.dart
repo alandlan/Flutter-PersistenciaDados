@@ -27,7 +27,7 @@ class BytebankApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         )
       ),
-        home: CaracterForm(),
+        home: Dashboard(),
     );
   }
 }

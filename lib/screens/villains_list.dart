@@ -1,3 +1,4 @@
+import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
 import 'package:flutter/material.dart';
 
 class VillainsList extends StatelessWidget {
@@ -18,7 +19,9 @@ class VillainsList extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => CaracterForm()));
+        },
         child: Icon(Icons.adb_sharp),
       ),
     );

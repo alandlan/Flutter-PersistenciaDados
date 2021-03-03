@@ -1,6 +1,19 @@
+import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:flutter/material.dart';
 
-class CaracterForm extends StatelessWidget {
+class CaracterForm extends StatefulWidget {
+
+  @override
+  _CaracterFormState createState() => _CaracterFormState();
+}
+
+class _CaracterFormState extends State<CaracterForm> {
+  final TextEditingController _nameController = TextEditingController();
+
+  final TextEditingController _sloganController = TextEditingController();
+
+  final TextEditingController _bornController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,6 +24,7 @@ class CaracterForm extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextField(
+                controller: _nameController,
                 decoration: InputDecoration(
                   labelText: 'Full name'
                 ),
@@ -21,6 +35,7 @@ class CaracterForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: TextField(
+                  controller: _sloganController,
                   decoration: InputDecoration(
                     labelText: 'Slogan'
                   ),
@@ -32,6 +47,7 @@ class CaracterForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: TextField(
+                  controller: _bornController,
                   decoration: InputDecoration(
                     labelText: 'Born'
                   ),
@@ -47,7 +63,15 @@ class CaracterForm extends StatelessWidget {
                   width: double.maxFinite,
                   child: RaisedButton(
                       child: Text('Create'),
-                      onPressed: (){}),
+                      onPressed: (){
+                        final String name = _nameController.text;
+                        final String slogan = _sloganController.text;
+                        final int born = int.tryParse(_bornController.text);
+
+                        final Caracter caracter = Caracter(name,slogan,born);
+
+                        Navigator.pop(context,caracter);
+                      }),
                 ),
               )
             ],

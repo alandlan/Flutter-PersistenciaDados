@@ -1,3 +1,4 @@
+import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
 import 'package:flutter/material.dart';
 
 class HeroesList extends StatelessWidget {
@@ -18,7 +19,14 @@ class HeroesList extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => CaracterForm(),
+          ),
+          )
+              .then((caracter) => debugPrint(caracter.toString()),
+          );
+        },
         child: Icon(Icons.adb_outlined),
       ),
     );
