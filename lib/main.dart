@@ -1,3 +1,4 @@
+import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
 import 'package:FlutterPersistenciaDados/screens/dashboard.dart';
 import 'package:FlutterPersistenciaDados/screens/heroes_list.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class BytebankApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         )
       ),
-        home: Dashboard(),
+        home: CaracterForm(),
     );
   }
 }
