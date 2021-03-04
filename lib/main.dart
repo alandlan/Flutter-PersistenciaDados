@@ -1,3 +1,5 @@
+import 'package:FlutterPersistenciaDados/database/app_database.dart';
+import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:FlutterPersistenciaDados/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 

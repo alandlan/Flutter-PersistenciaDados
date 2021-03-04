@@ -1,29 +1,42 @@
+import 'package:FlutterPersistenciaDados/database/app_database.dart';
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
 import 'package:flutter/material.dart';
 
 class HeroesList extends StatelessWidget {
 
-  final List<Caracter> caracters = new List();
-
   @override
   Widget build(BuildContext context) {
-    caracters.add(new Caracter(0, 'Wanda Maximoff', 'Nos Criamos os nossos proprios demonios', 1993));
-    caracters.add(new Caracter(0, 'Wanda Maximoff', 'Nos Criamos os nossos proprios demonios', 1993));
-    caracters.add(new Caracter(0, 'Wanda Maximoff', 'Nos Criamos os nossos proprios demonios', 1993));
-    caracters.add(new Caracter(0, 'Wanda Maximoff', 'Nos Criamos os nossos proprios demonios', 1993));
     return Scaffold(
       appBar: AppBar(
         title: Text('Heroes'),
       ),
-      body:
-      ListView.builder(
-        itemBuilder: (context, index){
-          final Caracter caracter = caracters[index];
-          return _HeroesItem(caracter);
-        },
-        itemCount: caracters.length,
+      body: FutureBuilder<List<Caracter>>(
+        initialData: List(),
+          future: Future.delayed(Duration(seconds: 1)).then((value) => findAllHeroes()),
+          builder: (context,snapshot){
+
+              final List<Caracter> caracters = snapshot.data;
+              return ListView.builder(
+                itemBuilder: (context, index){
+                  final Caracter caracter = caracters[index];
+                  return _HeroesItem(caracter);
+                },
+                itemCount: caracters.length,
+              );
+            }
+            // return Center(
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: <Widget>[
+            //       CircularProgressIndicator(),
+            //       Text("Loading")
+            //     ],
+            //   ),
+            // );
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           Navigator.of(context)
