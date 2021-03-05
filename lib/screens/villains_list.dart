@@ -1,4 +1,4 @@
-import 'package:FlutterPersistenciaDados/screens/caracter_form.dart';
+import 'package:FlutterPersistenciaDados/screens/villain_form.dart';
 import 'package:flutter/material.dart';
 
 class VillainsList extends StatelessWidget {
@@ -20,7 +20,7 @@ class VillainsList extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => CaracterForm()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => VillainForm()));
         },
         child: Icon(Icons.adb_sharp),
       ),

@@ -1,13 +1,14 @@
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:flutter/material.dart';
 
-class CaracterForm extends StatefulWidget {
+class VillainForm extends StatefulWidget {
 
   @override
-  _CaracterFormState createState() => _CaracterFormState();
+  _VillainFormState createState() => _VillainFormState();
 }
 
-class _CaracterFormState extends State<CaracterForm> {
+class _VillainFormState extends State<VillainForm> {
+
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _sloganController = TextEditingController();
@@ -17,7 +18,7 @@ class _CaracterFormState extends State<CaracterForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('New Caracter'),),
+      appBar: AppBar(title: Text('New Villain'),),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -68,7 +69,7 @@ class _CaracterFormState extends State<CaracterForm> {
                         final String slogan = _sloganController.text;
                         final int born = int.tryParse(_bornController.text);
 
-                        final Caracter caracter = Caracter(0,name,slogan,born);
+                        final Caracter caracter = Caracter(0,name,slogan,born,1);
 
                         Navigator.pop(context,caracter);
                       }),

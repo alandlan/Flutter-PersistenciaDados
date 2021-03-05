@@ -1,10 +1,14 @@
-import 'package:FlutterPersistenciaDados/database/app_database.dart';
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:FlutterPersistenciaDados/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
+import 'database/app_database.dart';
+
 void main() {
+
   runApp(BytebankApp());
+
+  save(Caracter(0,'IronMan','PlayBoy', 1985,0));
 }
 
 class BytebankApp extends StatelessWidget {

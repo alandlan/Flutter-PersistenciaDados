@@ -1,3 +1,4 @@
+import 'package:FlutterPersistenciaDados/database/app_database.dart';
 import 'package:FlutterPersistenciaDados/screens/villains_list.dart';
 import 'package:flutter/material.dart';
 
@@ -11,73 +12,89 @@ class Dashboard extends StatelessWidget {
         leading: Icon(Icons.wb_auto),
         title: Text('The Avengers'),
       ),
-
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset('images/marvel.png'),
-          ),Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Material(
-                  color: Theme.of(context).primaryColor,
-                  child: InkWell(
-                    onTap:(){
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => HeroesList(),)
-                      );
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(8.0),
-                      height: 100,
-                      width: 150,
+                child: Image.asset('images/marvel.png'),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Material(
                       color: Theme.of(context).primaryColor,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Icon(Icons.people,size: 32.0,),
-                          Text('Heroes')
-                        ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HeroesList(),
+                          ));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8.0),
+                          height: 100,
+                          width: 150,
+                          color: Theme.of(context).primaryColor,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(
+                                Icons.people,
+                                size: 32.0,
+                              ),
+                              Text('Heroes')
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Material(
-                  color: Theme.of(context).primaryColor,
-                  child: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => VillainsList(),));
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(8.0),
-                      height: 100,
-                      width: 150,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Material(
                       color: Theme.of(context).primaryColor,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Icon(Icons.people_outline,size: 32.0,),
-                          Text('Villains')
-                        ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => VillainsList(),
+                          ));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8.0),
+                          height: 100,
+                          width: 150,
+                          color: Theme.of(context).primaryColor,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: <Widget>[
+                              Icon(
+                                Icons.people_outline,
+                                size: 32.0,
+                              ),
+                              Text('Villains')
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-
+                ],
               )
             ],
-          )
-
+          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await removeAll();
+        },child: Icon(Icons.restore_from_trash),
       ),
     );
   }
