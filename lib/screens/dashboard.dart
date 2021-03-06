@@ -1,10 +1,13 @@
-import 'package:FlutterPersistenciaDados/database/app_database.dart';
+import 'package:FlutterPersistenciaDados/database/dao/caracter_dao.dart';
 import 'package:FlutterPersistenciaDados/screens/villains_list.dart';
 import 'package:flutter/material.dart';
 
 import 'heroes_list.dart';
 
 class Dashboard extends StatelessWidget {
+
+  final CaracterDao _dao = CaracterDao();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +96,7 @@ class Dashboard extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await removeAll();
+          await _dao.removeAll();
         },child: Icon(Icons.restore_from_trash),
       ),
     );

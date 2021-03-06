@@ -1,3 +1,4 @@
+import 'package:FlutterPersistenciaDados/database/dao/caracter_dao.dart';
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +11,9 @@ class VillainForm extends StatefulWidget {
 class _VillainFormState extends State<VillainForm> {
 
   final TextEditingController _nameController = TextEditingController();
-
   final TextEditingController _sloganController = TextEditingController();
-
   final TextEditingController _bornController = TextEditingController();
+  final CaracterDao _dao = CaracterDao();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _VillainFormState extends State<VillainForm> {
 
                         final Caracter caracter = Caracter(0,name,slogan,born,1);
 
-                        Navigator.pop(context,caracter);
+                        _dao.save(caracter).then((id) => Navigator.pop(context));
                       }),
                 ),
               )

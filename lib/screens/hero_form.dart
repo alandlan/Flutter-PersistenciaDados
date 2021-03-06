@@ -1,4 +1,4 @@
-import 'package:FlutterPersistenciaDados/database/app_database.dart';
+import 'package:FlutterPersistenciaDados/database/dao/caracter_dao.dart';
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +11,9 @@ class HeroForm extends StatefulWidget {
 class _HeroFormState extends State<HeroForm> {
 
   final TextEditingController _nameController = TextEditingController();
-
   final TextEditingController _sloganController = TextEditingController();
-
   final TextEditingController _bornController = TextEditingController();
+  final CaracterDao _dao = CaracterDao();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +70,7 @@ class _HeroFormState extends State<HeroForm> {
                         final int born = int.tryParse(_bornController.text);
 
                         final Caracter caracter = Caracter(0,name,slogan,born,0);
-                        save(caracter).then((id) => Navigator.pop(context));
+                        _dao.save(caracter).then((id) => Navigator.pop(context));
 
                       }),
                 ),

@@ -1,9 +1,12 @@
-import 'package:FlutterPersistenciaDados/database/app_database.dart';
+import 'package:FlutterPersistenciaDados/database/dao/caracter_dao.dart';
 import 'package:FlutterPersistenciaDados/models/caracter.dart';
 import 'package:FlutterPersistenciaDados/screens/hero_form.dart';
 import 'package:flutter/material.dart';
 
 class HeroesList extends StatefulWidget {
+
+  final CaracterDao _dao = CaracterDao();
+
   @override
   _HeroesListState createState() => _HeroesListState();
 }
@@ -18,7 +21,7 @@ class _HeroesListState extends State<HeroesList> {
       body: FutureBuilder<List<Caracter>>(
           initialData: List(),
           future:
-              Future.delayed(Duration(seconds: 1)).then((value) => findAll()),
+              Future.delayed(Duration(seconds: 1)).then((value) => widget._dao.findAllSize(0)),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
